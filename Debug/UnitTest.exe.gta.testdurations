@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Executable>C:\Personal\CODE\StateMachine\Debug\UnitTest.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="TestCaseName.TestName" Duration="1" />
+    <TestDuration Test="GenerateFibonacciTest.CheckfirstFewNumbers" Duration="3" />
+    <TestDuration Test="GenerateFibonacciTest.CheckfirstNumber" Duration="1" />
+    <TestDuration Test="GenerateFibonacciTest.CheckThousandNumbers" Duration="3" />
+    <TestDuration Test="StartStopPauseTimerTest.CheckInitialStatus" Duration="1" />
+    <TestDuration Test="StartStopPauseTimerTest.CheckAfterStop" Duration="1" />
+    <TestDuration Test="StartStopPauseTimerTest.CheckAfterPause" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>
