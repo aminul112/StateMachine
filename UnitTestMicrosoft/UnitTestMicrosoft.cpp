@@ -39,4 +39,49 @@ TEST_CLASS(GenerateFibonacciTest)
                   
                 }
 	};
+
+TEST_CLASS(StartStopPauseTimerTest){
+          public : 
+              TEST_METHOD(CheckInitialStatus){
+          
+               StartStopPauseTimer timer;
+               Assert::AreEqual(timer.isPaused(), false);
+               Assert::AreEqual(timer.isStopped(), true);
+
+               int startTime1 = timer.getStartTime();
+
+               timer.start();
+
+               int startTime2 = timer.getStartTime();
+        
+
+               Assert::AreNotSame(startTime1, startTime2);         
+          
+          }
+          TEST_METHOD(CheckAfterStop) {
+            StartStopPauseTimer timer;
+            Assert::AreEqual(timer.isStopped(), true);
+            int startTime1 = timer.getStartTime();
+            timer.start();
+            int startTime2 = timer.getStartTime();
+            Assert::AreNotSame(startTime1, startTime2);
+            Assert::AreEqual(timer.isStopped(), false);
+
+           }
+
+
+
+
+          TEST_METHOD(CheckAfterPause) {
+             StartStopPauseTimer timer2;
+             bool x = timer2.isPaused();
+             Assert::AreEqual(timer2.isPaused(), false);
+             int startTime1 = timer2.getStartTime();
+             timer2.start();
+             timer2.pause();
+             Assert::AreEqual(timer2.isPaused(), true);
+          }
+        };
+
+
 }

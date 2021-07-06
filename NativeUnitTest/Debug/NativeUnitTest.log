@@ -1,8 +1,0 @@
-﻿  NativeUnitTest.cpp
-C:\Personal\CODE\StateMachine\NativeUnitTest\NativeUnitTest.cpp(4,17): error C2653: 'Microsoft': is not a class or namespace name
-C:\Personal\CODE\StateMachine\NativeUnitTest\NativeUnitTest.cpp(4,62): error C2871: 'CppUnitTestFramework': a namespace with this name does not exist
-C:\Personal\CODE\StateMachine\NativeUnitTest\NativeUnitTest.cpp(7,26): error C2882: 'NativeUnitTest': illegal use of namespace identifier in expression
-C:\Personal\CODE\StateMachine\NativeUnitTest\NativeUnitTest.cpp(7,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Personal\CODE\StateMachine\NativeUnitTest\NativeUnitTest.cpp(7,27): error C2059: syntax error: '{'
-C:\Personal\CODE\StateMachine\NativeUnitTest\NativeUnitTest.cpp(7,27): error C2143: syntax error: missing ';' before '{'
-C:\Personal\CODE\StateMachine\NativeUnitTest\NativeUnitTest.cpp(7,27): error C2447: '{': missing function header (old-style formal list?)
