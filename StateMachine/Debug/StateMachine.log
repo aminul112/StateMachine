@@ -1,5 +1,5 @@
 ﻿  Machine.cpp
   MachineStates.cpp
-  main.cpp
+  Main.cpp
   Generating Code...
   StateMachine.vcxproj -> C:\Personal\CODE\StateMachine\Debug\StateMachine.exe
