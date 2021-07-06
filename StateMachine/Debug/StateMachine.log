@@ -1,5 +1,10 @@
-﻿  Machine.cpp
+﻿  GenerateFibonacciNumbers.cpp
+  Machine.cpp
   MachineStates.cpp
+  StartStopPauseTimer.cpp
+C:\Personal\CODE\StateMachine\StateMachine\StartStopPauseTimer.cpp(30,26): warning C4244: '=': conversion from 'time_t' to 'long', possible loss of data
+C:\Personal\CODE\StateMachine\StateMachine\StartStopPauseTimer.cpp(34,43): warning C4244: '+=': conversion from 'time_t' to 'long', possible loss of data
+C:\Personal\CODE\StateMachine\StateMachine\StartStopPauseTimer.cpp(51,26): warning C4244: '=': conversion from 'time_t' to 'long', possible loss of data
   Main.cpp
   Generating Code...
   StateMachine.vcxproj -> C:\Personal\CODE\StateMachine\Debug\StateMachine.exe

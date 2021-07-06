@@ -1,3 +1,0 @@
-﻿  test.cpp
-C:\Personal\CODE\StateMachine\Tests\test.cpp(14,3): error C2653: 'GenerateFibonacciNumbers': is not a class or namespace name
-C:\Personal\CODE\StateMachine\Tests\test.cpp(14,29): error C3861: 'generateFibonacciNumbersSet': identifier not found
