@@ -11,22 +11,30 @@
  */
 
 #include "GenerateFibonacciNumbers.h"
+#include <iostream>
 
 // Generates first N fibonacci numbers.
-void GenerateFibonacciNumbers::generateFibonacciNumbersSet(std::set<int> &resultFiboncciSet, int total)
-{
+void GenerateFibonacciNumbers::generateFibonacciNumbersSet(
 
-    int fib1 = 0;
-    int fib2 = 1;
-    int fib3 = 0;
+    /*
+    Note: My program will not support up to 1000th fibonacci number
+    as no standard data type will fit this large number.
+    We need to implement big integer class to support big string 
+    addition.
+    */
+    std::set<unsigned long long> &resultFiboncciSet, int total) {
+
+    unsigned long long fib1(0);
+    unsigned long long fib2 (1);
+    unsigned long long fib3;
     if (total == 1) {
         resultFiboncciSet.insert(0);
         return;
     }
 
     if (total == 2) {
-        resultFiboncciSet.insert(0);
-        resultFiboncciSet.insert(1);
+      resultFiboncciSet.insert(0);
+      resultFiboncciSet.insert(1);
         return;
     }
     total = total + 2;
@@ -36,5 +44,7 @@ void GenerateFibonacciNumbers::generateFibonacciNumbersSet(std::set<int> &result
         resultFiboncciSet.insert(fib3);
         fib1 = fib2;
         fib2 = fib3;
+        std::cout << fib3 << "  " << i << std::endl;
     }
+    
 }

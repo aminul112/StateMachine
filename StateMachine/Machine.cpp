@@ -5,6 +5,7 @@
 #include <map>
 #include <set>
 
+// this is to sort by fequency
 struct SortByFrequency
 {
     template <typename T>
@@ -18,12 +19,17 @@ struct SortByFrequency
     }
 };
 
-Machine::Machine(unsigned int _output_period_in_seconds, std::map<int, int> &_my_map, StartStopPauseTimer *_timer, std::set<int> &_fiboncci_set)
-{
+Machine::Machine(unsigned int _output_period_in_seconds,
+                 std::map<int, int> &_my_map, StartStopPauseTimer *_timer,
+                 std::set<unsigned long long> &_fiboncci_set) {
+
+    // get all dependencies
     outputPeriodInSeconds_ = _output_period_in_seconds;
-    dataTableFrequencyMap_ = _my_map;
+    _dataTableFrequencyMap = _my_map;
     startStopPauseTimer_ = _timer;
     firstThousandFiboncciSet_ = _fiboncci_set;
+
+    // At first the machine will enter in the Run State. It is alway fixed according to requirement
     machineState_ = static_cast<std::unique_ptr<AbstractState>>(std::make_unique<RunState>());
     startStopPauseTimer_->start();
 }
@@ -32,16 +38,17 @@ Machine::~Machine()
 {
 }
 
+// get user input according to the state of the machine.
 void Machine::getUserInput() { machineState_->getUserInput(*this); }
+
 
 void Machine::printDataTable()
 {
 
     while (1) {
-        if ((time(0) - startStopPauseTimer_->getStartTime() == outputPeriodInSeconds_) && startStopPauseTimer_->isPaused() == false && startStopPauseTimer_->isStopped() == false) {
-
-            //cout << "printDataTable id = " <<  this_thread::get_id() << endl;
+        if ((time(0) - startStopPauseTimer_->getStartTime() == outputPeriodInSeconds_) && startStopPauseTimer_->isPaused() == false && startStopPauseTimer_->isStopped() == false) {           
             sortAndPrintData();
+            //when we print a data table, timer shall be reset
             startStopPauseTimer_->stop();
             startStopPauseTimer_->start();
         }
@@ -50,10 +57,9 @@ void Machine::printDataTable()
 
 void Machine::sortAndPrintData()
 {
-    {
-        
+    {        
         std::lock_guard<std::mutex> lockGuard(mutex_);
-        std::set<std::pair<int, int>, SortByFrequency> set(dataTableFrequencyMap_.begin(), dataTableFrequencyMap_.end());
+        std::set<std::pair<int, int>, SortByFrequency> set(_dataTableFrequencyMap.begin(), _dataTableFrequencyMap.end());
 
         int num_printed = 0;
         for (auto const &pair : set) {
@@ -87,8 +93,7 @@ void Machine::startTimer()
     startStopPauseTimer_->start();
 }
 
-void Machine::isFiboncciNumber(int _fib_check)
-{
+void Machine::isFiboncciNumber(unsigned long long _fib_check) {
 
     if (firstThousandFiboncciSet_.count(_fib_check)) {
         std::cout << "FIB!" << std::endl;
@@ -96,16 +101,15 @@ void Machine::isFiboncciNumber(int _fib_check)
 }
 
 void Machine::addNumberToDataTableFrequencyMap(int number)
-{
-    //cout << "addNumberToDataTableFrequencyMap id = " << this_thread::get_id() << endl;
+{   
     {
 
         std::lock_guard<std::mutex> lockGuard(mutex_);
 
-        if (dataTableFrequencyMap_.find(number) != dataTableFrequencyMap_.end()) {
-            dataTableFrequencyMap_[number]++;
+        if (_dataTableFrequencyMap.find(number) != _dataTableFrequencyMap.end()) {
+            _dataTableFrequencyMap[number]++;
         } else {
-            dataTableFrequencyMap_[number] = 1;
+            _dataTableFrequencyMap[number] = 1;
         }
     }
 }

@@ -30,5 +30,6 @@ public:
      * @param total how many numbers to generate.
      * @return
      */
-    static void generateFibonacciNumbersSet(std::set<int> &resultFiboncciSet, int total);
+ static void generateFibonacciNumbersSet(
+     std::set<unsigned long long> &resultFiboncciSet, int total);
 };

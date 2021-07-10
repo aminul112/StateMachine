@@ -16,7 +16,7 @@ TEST_CLASS(GenerateFibonacciTest)
 		TEST_METHOD(CheckfirstNumber)
 		{
 			
-			std::set<int> firstThousandFiboncciSet;
+			std::set<unsigned long long> firstThousandFiboncciSet;
             GenerateFibonacciNumbers::generateFibonacciNumbersSet(
                       firstThousandFiboncciSet, 1);
 
@@ -31,7 +31,7 @@ TEST_CLASS(GenerateFibonacciTest)
 
 
 		TEST_METHOD(CheckThousandNumbers) {
-                  std::set<int> firstThousandFiboncciSet;
+                  std::set<unsigned long long> firstThousandFiboncciSet;
                   GenerateFibonacciNumbers::generateFibonacciNumbersSet(
                       firstThousandFiboncciSet, 1000);
 

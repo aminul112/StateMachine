@@ -2,23 +2,70 @@
 #include <iostream>
 
 
-
+/**
+ * @class StartStopPauseTimer
+ *
+ * @brief This class dealt with timer.
+ *
+ */
 
 class StartStopPauseTimer
 {
-private:
-    long startTime_;
-    long pauseTime_;
-    //Two bool values ​​mark four states
-    bool isPaused_; //Record the status of the StartStopPauseTimer (whether it is in a paused machineState_)
-    bool isStopped_;  //Is it in a stopped machineState_?
 public:
+    /**
+    * @brief constructor
+    *
+    */
     StartStopPauseTimer();
+
+    /**
+     * @brief returns if the state is paused or not
+     *
+     */
     bool isPaused();
+
+    /**
+     * @brief returns if the state is stopped or not
+     *
+     */
     bool isStopped();
-    //Three actions (functions) of the startStopPauseTimer_
+
+    /**
+     * @brief starts the timer
+     *
+     */
     void start();
+
+    /**
+     * @brief pauses the timer
+     *
+     */
     void pause();
+
+    /**
+     * @brief stops the timer
+     *
+     */
     void stop();
+
+    /**
+     * @brief return the statrt time of this timer
+     *
+     */
     int getStartTime();
+
+private:
+    //start time of timer
+    long startTime_;
+
+    // when the timer was paused
+    long pauseTime_;
+
+    
+    // to mark if the timer is paused or not
+    bool isPaused_;  
+    
+    // to mark if the timer is stopped or not
+    bool isStopped_; 
+
 };

@@ -16,6 +16,7 @@ RunState::~RunState() {}
 
 void RunState::getUserInput(Machine &machine)
 {
+    // We are not catching exception here because make_unique is exception safe.
 
     char ch;
     std::cin >> ch;
@@ -30,7 +31,7 @@ void RunState::getUserInput(Machine &machine)
     }
     if (ch == NUMBER) {
 
-        // block printing data (optional)
+        // Note: we are not blocking printing( optional requirement)
         int number;
         std::cout << "Please enter the new number:";
         std::cin >> number;
@@ -57,6 +58,7 @@ PauseState::~PauseState() {}
 void PauseState::getUserInput(Machine &machine)
 {
 
+    // We are not catching exception here because make_unique is exception safe.
     char ch;
     std::cin >> ch;
     if (ch == RUN) {
@@ -69,7 +71,7 @@ void PauseState::getUserInput(Machine &machine)
     }
     if (ch == NUMBER) {
 
-        // block printing data (optional)
+        // Note: we are not blocking printing( optional requirement)
         int number;
         std::cout << "Please enter the new number:";
         std::cin >> number;
@@ -84,6 +86,7 @@ void PauseState::getUserInput(Machine &machine)
 
         machine.stopTimer();
         machine.pauseTimer();
+        //before quiting, print good bye message
         machine.printDataTableWithGoodByeMessage();
         return;
     }
